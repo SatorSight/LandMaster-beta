@@ -1,0 +1,53 @@
+<h1>Page creation</h1>
+<form action="/create" method="post" enctype="multipart/form-data">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <label for="title">Title</label>
+  <input class="form-control" id="title" type="text" name="title"/>
+
+  <label for="link">Link</label>
+  <input class="form-control" id="link" type="text" name="link"/>
+
+  <label for="stars">Stars</label>
+  <input class="form-control" id="stars" type="number" name="stars"/>
+
+  <div class="checkbox">
+    <label for="free"><input id="free" type="checkbox" name="free"/>Free</label>
+  </div>
+
+  <label for="url">Url</label>
+  <input class="form-control" id="url" type="text" name="url"/>
+
+  <label for="button_text">Button text</label>
+  <input class="form-control" id="button_text" type="text" name="button_text"/>
+
+  <label for="button_color">Button color</label>
+  <input class="form-control" id="button_color" type="text" name="button_color"/>
+
+  <div class="radio">
+    <label for="android"><input value="1" id="android" type="radio" name="store"/>Android</label>
+  </div>
+  <div class="radio">
+    <label for="ios"><input value="2" id="ios" type="radio" name="store"/>iOS</label>
+  </div>
+
+  <label for="image_left">Image left</label>
+  <input class="form-control" id="image_left" type="file" name="image_left"/>
+
+  <label for="image_right">Image right</label>
+  <input class="form-control" id="image_right" type="file" name="image_right"/>
+
+  <label for="image_bottom">Image bottom</label>
+  <input class="form-control" id="image_bottom" type="file" name="image_bottom"/>
+
+  <label for="ya_counter">Yandex metrika counter</label>
+  <input class="form-control" id="ya_counter" type="text" name="ya_counter"/>
+
+  <label for="ga_counter">Google Analytics counter</label>
+  <input class="form-control" id="ga_counter" type="text" name="ga_counter"/>
+
+  <input type="hidden" name="id" value="<%= @page.id %>">
+
+  <br>
+  <button class="btn btn-default" type="submit">Create</button>
+</form>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LandMaster beta</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<div class="container" id="admin-container">
+  <div class="jumbotron header-all" style="margin: 0; padding: 10px;">
+    <div class="media">
+      <div class="media-left">
+      </div>
+      <div class="media-body">
+        <h2 id="admin-terminal"> < /> LandMaster beta</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <ul class="nav nav-pills">
+        <li>
+          <a href="/new">
+            <button class="btn btn-default">New</button>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <button class="btn btn-default">All</button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+    <br>
+    <%= yield %>
+  </div>
+</div>
+<br>
+<br>
+</body>
+</html>

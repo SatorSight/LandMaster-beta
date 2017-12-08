@@ -1,0 +1,31 @@
+<h1>Pages list</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Title</td>
+    <td>OS</td>
+    <td>Last updated</td>
+    <td>Url</td>
+    <td>Actions</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @pages.each do |page| %>
+      <tr>
+        <td><%= page.title %></td>
+        <td><% if page.store == 1 %>Android<% else %>iOS<% end %></td>
+        <td><%= page.updated_at.to_s %></td>
+        <td>
+          <a target="_blank" href="/page/<%= page.url %>/">
+            <%= request.domain %>/page/<%= page.url %>
+          </a>
+        </td>
+        <td>
+          <a target="_blank" href="/page/<%= page.url %>/"><button class="btn">Show</button></a>
+          <a href="/edit/<%= page.id %>/"><button class="btn btn-default">Edit</button></a>
+          <a href="/delete/<%= page.id %>/"><button class="btn btn-danger">Delete</button></a>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

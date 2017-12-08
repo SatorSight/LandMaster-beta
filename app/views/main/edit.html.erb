@@ -1,0 +1,66 @@
+<h1>Page edit</h1>
+<form action="/update" method="post" enctype="multipart/form-data">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <label for="title">Title</label>
+  <input value="<%= @page.title %>" class="form-control" id="title" type="text" name="title"/>
+
+  <label for="link">Link</label>
+  <input value="<%= @page.link %>" class="form-control" id="link" type="text" name="link"/>
+
+  <label for="stars">Stars</label>
+  <input value="<%= @page.start %>" class="form-control" id="stars" type="number" name="stars"/>
+
+  <div class="checkbox">
+    <label for="free"><input <% if @page.free %>checked="checked"<% end %> id="free" type="checkbox" name="free"/>Free</label>
+  </div>
+
+  <label for="url">Url</label>
+  <input value="<%= @page.url %>" class="form-control" id="url" type="text" name="url"/>
+
+  <label for="button_text">Button text</label>
+  <input value="<%= @page.button_text %>" class="form-control" id="button_text" type="text" name="button_text"/>
+
+  <label for="button_color">Button color</label>
+  <input value="<%= @page.button_color %>" class="form-control" id="button_color" type="text" name="button_color"/>
+
+  <div class="radio">
+    <label for="android"><input <% if @page.store == 1 %>checked="checked"<% end %> id="android" value="1" type="radio" name="store"/>Android</label>
+  </div>
+  <div class="radio">
+    <label for="ios"><input <% if @page.store == 2 %>checked="checked"<% end %> id="ios" value="2" type="radio" name="store"/>iOS</label>
+  </div>
+
+  <img style="width:500px;" src="<%= @page.img_left %>" alt="">
+  
+  <label for="image_left">Image left</label>
+  <input class="form-control" id="image_left" type="file" name="image_left"/>
+
+  <br>
+
+  <img style="width:500px;" src="<%= @page.img_right %>" alt="">
+
+  <label for="image_right">Image right</label>
+  <input class="form-control" id="image_right" type="file" name="image_right"/>
+
+  <br>
+
+  <img style="width:500px;" src="<%= @page.img_bottom %>" alt="">
+
+  <label for="image_bottom">Image bottom</label>
+  <input class="form-control" id="image_bottom" type="file" name="image_bottom"/>
+
+  <br>
+
+  <label for="ya_counter">Yandex metrika counter</label>
+  <input value="<%= @page.ya_counter %>" class="form-control" id="ya_counter" type="text" name="ya_counter"/>
+
+  <label for="ga_counter">Google Analytics counter</label>
+  <input value="<%= @page.ga_counter %>" class="form-control" id="ga_counter" type="text" name="ga_counter"/>
+
+  <input type="hidden" name="id" value="<%= @page.id %>">
+  <input type="hidden" name="images_exist" value="<% if @page.img_left.present? and @page.img_right.present? and @page.img_bottom.present? %>yes<% else %>no<% end %>">
+
+  <br>
+  <button class="btn btn-default" type="submit">Update</button>
+</form>
