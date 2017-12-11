@@ -22,7 +22,7 @@
   <input value="<%= @page.button_text %>" class="form-control" id="button_text" type="text" name="button_text"/>
 
   <label for="button_color">Button color</label>
-  <input value="<%= @page.button_color %>" class="form-control" id="button_color" type="text" name="button_color"/>
+  <input value="<%= @page.button_color %>" class="form-control jscolor" id="button_color" type="text" name="button_color"/>
 
   <div class="radio">
     <label for="android"><input <% if @page.store == 1 %>checked="checked"<% end %> id="android" value="1" type="radio" name="store"/>Android</label>

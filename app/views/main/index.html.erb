@@ -22,7 +22,7 @@
         </td>
         <td>
           <a target="_blank" href="/page/<%= page.url %>/"><button class="btn">Show</button></a>
-          <a href="/edit/<%= page.id %>/"><button class="btn btn-default">Edit</button></a>
+          <a data-turbolinks="false" href="/edit/<%= page.id %>/"><button class="btn btn-default">Edit</button></a>
           <a href="/delete/<%= page.id %>/"><button class="btn btn-danger">Delete</button></a>
         </td>
       </tr>
